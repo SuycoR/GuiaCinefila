@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  basedatos_mysql:
+    image: mysql
+    container_name: mysql_critica
+    environment:
+      MYSQL_DATABASE: peliculas
+      MYSQL_ROOT_PASSWORD: peliculas
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql_data:/var/lib/mysql
+
+  servidorcritica:
+    build: .
+    container_name: spring_critica
+    depends_on:
+      - basedatos_mysql
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://basedatos_mysql:3306/peliculas
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: peliculas
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_APPLICATION_NAME: critica
+    restart: on-failure
+
+volumes:
+  mysql_data:
