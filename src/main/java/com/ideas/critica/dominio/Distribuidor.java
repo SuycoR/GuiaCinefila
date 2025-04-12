@@ -11,7 +11,7 @@ public class Distribuidor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
     private String nombre;
-    private String sitioWeb;
+    private String sitio;
 
     public Integer getId() {
         return Id;
@@ -29,11 +29,11 @@ public class Distribuidor {
         this.nombre = nombre;
     }
 
-    public String getSitioWeb() {
-        return sitioWeb;
+    public String getSitio() {
+        return sitio;
     }
 
-    public void setSitioWeb(String sitio_web) {
-        this.sitioWeb = sitio_web;
+    public void setSitio(String sitio_web) {
+        this.sitio = sitio_web;
     }
 }

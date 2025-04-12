@@ -10,14 +10,14 @@ public class Pelis {
     private Integer id;
     private String nombre;
     private String descripcion;
-    private String imagenUrl;
+    private String imagen;
     @ManyToOne
     private Distribuidor distribuidor;
 
-    public Pelis(String nombre, String descripcion, String imagenUrl, Distribuidor distribuidor) {
+    public Pelis(String nombre, String descripcion, String imagen, Distribuidor distribuidor) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.imagenUrl = imagenUrl;
+        this.imagen = imagen;
         this.distribuidor = distribuidor;
     }
 
@@ -57,11 +57,11 @@ public class Pelis {
         this.descripcion = descripcion;
     }
 
-    public String getImagenUrl() {
-        return imagenUrl;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setImagenUrl(String imagenUrl) {
-        this.imagenUrl = imagenUrl;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

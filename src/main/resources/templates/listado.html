@@ -38,7 +38,7 @@
       <div class ="row">
           <div th:each="juego:${Peliculita}" class="col-md-3" >
               <div class="card">
-                  <img th:src="${juego.imagenUrl}" class="card-img-top" alt="..." src="">
+                  <img th:src="${juego.imagen}" class="card-img-top" alt="..." src="">
                   <div class="card-body">
                       <h5 th:text = "${juego.nombre}" class="card-title"></h5>
                       <p>
